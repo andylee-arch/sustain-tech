@@ -1,0 +1,245 @@
+<template>
+  <div class="page-wrap">
+    <section class="section hero-subpage">
+      <div class="container narrow-copy">
+        <span class="eyebrow">联系我们</span>
+        <h1>预约课程咨询，开启孩子的成长路径</h1>
+        <p>
+          我们将根据孩子的年龄、兴趣与能力，给出更适合的学习规划与课程建议，帮助家庭在选择教育服务时更稳妥、更清晰、更有信心。
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-layout">
+        <form class="contact-form" @submit.prevent="handleSubmit">
+          <h2>咨询表单</h2>
+          <div class="form-grid">
+            <div class="field">
+              <label>姓名</label>
+              <input v-model="form.name" type="text" placeholder="请输入您的姓名" />
+            </div>
+            <div class="field">
+              <label>电话</label>
+              <input v-model="form.phone" type="tel" placeholder="请输入联系方式" />
+            </div>
+            <div class="field">
+              <label>孩子年级</label>
+              <select v-model="form.grade">
+                <option value="">请选择</option>
+                <option>小学</option>
+                <option>初中</option>
+                <option>高中</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>意向课程</label>
+              <select v-model="form.course">
+                <option value="">请选择</option>
+                <option>工程项目实训</option>
+                <option>科创竞赛辅导</option>
+                <option>个性化学习规划</option>
+              </select>
+            </div>
+            <div class="field full-width">
+              <label>咨询内容</label>
+              <textarea v-model="form.message" placeholder="请说明孩子的学习需求和想了解的内容"></textarea>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">提交咨询</button>
+          <p v-if="submitted" class="success-tip">提交成功！我们将在24小时内与您联系。</p>
+        </form>
+
+        <aside class="info-panel">
+          <div class="info-card">
+            <h3>联系方式</h3>
+            <ul>
+              <li>电话：400-800-8888</li>
+              <li>微信：sustain-tech</li>
+              <li>邮箱：hello@sustain-tech.cn</li>
+              <li>工作时间：9:00-18:00</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3>公司地址</h3>
+            <p>上海市浦东新区某创新园区</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container faq-wrap">
+        <div class="section-heading">
+          <span class="eyebrow">常见问题</span>
+          <h2>家长最关心的几个问题</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item" v-for="faq in faqs" :key="faq.q">
+            <h3>{{ faq.q }}</h3>
+            <p>{{ faq.a }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const form = ref({
+  name: '',
+  phone: '',
+  grade: '',
+  course: '',
+  message: ''
+})
+
+const submitted = ref(false)
+
+const handleSubmit = () => {
+  if (!form.value.name || !form.value.phone || !form.value.grade || !form.value.course) {
+    alert('请完整填写姓名、电话、孩子年级和意向课程。')
+    return
+  }
+
+  submitted.value = true
+  form.value = { name: '', phone: '', grade: '', course: '', message: '' }
+}
+
+const faqs = [
+  {
+    q: '课程是否适合不同年龄段孩子？',
+    a: '我们会根据孩子的年龄、基础和学习目标，设计更适合的项目内容与学习节奏，让课程更贴合成长阶段。'
+  },
+  {
+    q: '是否有试听或体验活动？',
+    a: '可以预约免费试听，家长和孩子可以先感受课程形式、项目内容和教师教学方式，再决定是否继续。'
+  },
+  {
+    q: '课程是否需要提前基础？',
+    a: '不需要。我们会从孩子的现状出发，从兴趣和基础入手，帮助孩子建立稳定的学习方法与成长路径。'
+  },
+  {
+    q: '怎么判断课程适合我们？',
+    a: '通过咨询沟通和需求评估，我们可以根据孩子当前状态给出更合理的建议，帮助家庭做出更稳妥的决策。'
+  }
+]
+</script>
+
+<style scoped>
+.hero-subpage {
+  background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+}
+
+.narrow-copy {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1.5rem 1.2rem 0;
+}
+
+.contact-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 1.5rem;
+  padding: 0 1.2rem;
+}
+
+.contact-form,
+.info-card,
+.faq-item {
+  background: white;
+  border: 1px solid #edf2f7;
+  border-radius: 22px;
+  padding: 1.6rem;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.contact-form h2 {
+  margin-bottom: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field.full-width {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  color: #374151;
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid #e6edf5;
+  border-radius: 12px;
+  background: #fff;
+  padding: 0.9rem 1rem;
+  font: inherit;
+}
+
+.field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.info-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.info-card ul {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  color: #4b5563;
+}
+
+.faq-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.faq-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.faq-item h3 {
+  margin-bottom: 0.6rem;
+}
+
+.success-tip {
+  margin-top: 1rem;
+  color: #0f8c53;
+  font-weight: 700;
+}
+
+@media (max-width: 860px) {
+  .contact-layout,
+  .faq-list,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
