@@ -1,145 +1,27 @@
 <template>
   <div class="page-wrap">
-    <section class="hero-section section">
-      <div class="container hero-layout">
-        <div class="hero-copy">
-          <span class="eyebrow">工程思维 · 项目实战 · 真实成长</span>
-          <h1>让工程思维成为孩子的核心竞争力</h1>
-          <p class="lead">
-            专注K12 STEM项目式学习，以真实工程项目培养跨学科解决问题的能力，帮助孩子在动手实践中建立创造力、逻辑与自信。
-          </p>
-
-          <div class="hero-actions">
-            <router-link class="btn btn-primary btn-lg" to="/contact">预约免费试听</router-link>
-            <router-link class="btn btn-outline btn-lg" to="/services">了解课程</router-link>
-          </div>
-
-          <div class="hero-trust">
-            <span>正规企业资质</span>
-            <span>双师型教学</span>
-            <span>家长口碑</span>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <div class="feature-card card-main">
-            <div class="mini-badge">项目式学习</div>
-            <h3>从“做中学”到“会思考”</h3>
-            <ul>
-              <li>智能小车与机器人搭建</li>
-              <li>编程与创意设计挑战</li>
-              <li>真实工程任务导向训练</li>
-            </ul>
-          </div>
-          <div class="feature-card card-float card-top">
-            <strong>500+</strong>
-            <span>累计服务学员</span>
-          </div>
-          <div class="feature-card card-float card-bottom">
-            <strong>98%</strong>
-            <span>家长满意度</span>
-          </div>
-        </div>
+    <section class="section hero-subpage">
+      <div class="container narrow-copy">
+        <span class="eyebrow">联系我们</span>
+        <h1>预约课程咨询，开启孩子的成长路径</h1>
+        <p>
+          我们将根据孩子的年龄、兴趣与能力，给出更适合的学习规划与课程建议，帮助家庭在选择教育服务时更稳妥、更清晰、更有信心。
+        </p>
       </div>
     </section>
 
-    <section class="section metrics-section">
-      <div class="container grid grid-4 metrics-grid">
-        <div class="metric-item">
-          <strong>500+</strong>
-          <span>累计服务学员</span>
-        </div>
-        <div class="metric-item">
-          <strong>20+</strong>
-          <span>项目课程</span>
-        </div>
-        <div class="metric-item">
-          <strong>100+</strong>
-          <span>学员参赛获奖</span>
-        </div>
-        <div class="metric-item">
-          <strong>98%</strong>
-          <span>家长满意度</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section services-overview">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">核心服务</span>
-          <h2>围绕孩子成长的三大能力路径</h2>
-        </div>
-
-        <div class="grid grid-3">
-          <div class="service-card" v-for="service in services" :key="service.title">
-            <div class="icon-wrap">{{ service.icon }}</div>
-            <h3>{{ service.title }}</h3>
-            <p>{{ service.description }}</p>
-            <router-link :to="service.link">了解详情</router-link>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">精选案例</span>
-          <h2>真实成果，建立信任</h2>
-        </div>
-
-        <div class="grid grid-3 cases-grid">
-          <article class="case-card" v-for="caseItem in cases" :key="caseItem.title">
-            <div class="case-image" :style="{ background: caseItem.image }"></div>
-            <div class="case-body">
-              <span class="case-tag">{{ caseItem.category }}</span>
-              <h3>{{ caseItem.title }}</h3>
-              <p>{{ caseItem.summary }}</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="cta-row text-center mt-4">
-          <router-link class="btn btn-primary btn-lg" to="/cases">查看更多案例</router-link>
-        </div>
-      </div>
-    </section>
-
-    <section class="section why-us">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">为什么选择我们</span>
-          <h2>值得家长信任的专业与温度</h2>
-        </div>
-
-        <div class="grid grid-4 advantage-grid">
-          <div class="advantage-item" v-for="adv in advantages" :key="adv.title">
-            <div class="adv-icon">{{ adv.icon }}</div>
-            <h3>{{ adv.title }}</h3>
-            <p>{{ adv.text }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt">
-      <div class="container contact-banner">
-        <div class="banner-copy">
-          <span class="eyebrow">咨询入口</span>
-          <h2>预约孩子的免费学习评估</h2>
-          <p>让我们根据年级、能力与兴趣，给出适合的学习方案。</p>
-        </div>
-
-        <form class="mini-form" @submit.prevent="handleSubmit">
+    <section class="section">
+      <div class="container contact-layout">
+        <form class="contact-form" @submit.prevent="handleSubmit">
+          <h2>咨询表单</h2>
           <div class="form-grid">
             <div class="field">
               <label>姓名</label>
-              <input v-model="form.name" type="text" placeholder="请输入姓名" />
+              <input v-model="form.name" type="text" placeholder="请输入您的姓名" />
             </div>
             <div class="field">
               <label>电话</label>
-              <input v-model="form.phone" type="tel" placeholder="请输入电话" />
+              <input v-model="form.phone" type="tel" placeholder="请输入联系方式" />
             </div>
             <div class="field">
               <label>孩子年级</label>
@@ -150,14 +32,56 @@
                 <option>高中</option>
               </select>
             </div>
+            <div class="field">
+              <label>意向课程</label>
+              <select v-model="form.course">
+                <option value="">请选择</option>
+                <option>工程项目实训</option>
+                <option>科创竞赛辅导</option>
+                <option>个性化学习规划</option>
+              </select>
+            </div>
             <div class="field full-width">
               <label>咨询内容</label>
-              <textarea v-model="form.message" placeholder="请描述孩子的学习需求"></textarea>
+              <textarea v-model="form.message" placeholder="请说明孩子的学习需求和想了解的内容"></textarea>
             </div>
           </div>
           <button class="btn btn-primary btn-block" type="submit">提交咨询</button>
           <p v-if="submitted" class="success-tip">提交成功！我们将在24小时内与您联系。</p>
         </form>
+
+        <aside class="info-panel">
+          <div class="info-card">
+            <h3>联系方式</h3>
+            <ul>
+              <li>电话：400-800-8888</li>
+              <li>微信：sustain-tech</li>
+              <li>邮箱：hello@sustain-tech.cn</li>
+              <li>工作时间：9:00-18:00</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3>公司地址</h3>
+            <p>上海市浦东新区某创新园区</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container faq-wrap">
+        <div class="section-heading">
+          <span class="eyebrow">常见问题</span>
+          <h2>家长最关心的几个问题</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item" v-for="faq in faqs" :key="faq.q">
+            <h3>{{ faq.q }}</h3>
+            <p>{{ faq.a }}</p>
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -166,369 +90,79 @@
 <script setup>
 import { ref } from 'vue'
 
-const services = [
-  {
-    icon: '⚙️',
-    title: '工程项目实训',
-    description: '围绕真实项目任务开展动手实践，提升科学、技术、工程与数学综合能力。',
-    link: '/services'
-  },
-  {
-    icon: '🏆',
-    title: '科创竞赛辅导',
-    description: '结合新赛制与竞赛能力提升，帮助孩子在项目设计与表达中建立优势。',
-    link: '/services'
-  },
-  {
-    icon: '📘',
-    title: '个性化学习规划',
-    description: '基于兴趣、能力与阶段目标，制定清晰且可执行的学习成长路径。',
-    link: '/services'
-  }
-]
-
-const cases = [
-  {
-    title: '智能小车创新挑战',
-    category: '项目作品',
-    summary: '通过团队协作完成路径规划与传感器应用，提升孩子的工程思维和问题解决能力。',
-    image: 'linear-gradient(135deg, #edf5ff, #dfeeff)'
-  },
-  {
-    title: 'AI创意设计项目',
-    category: '竞赛获奖',
-    summary: '围绕智能识别与交互体验展开方案设计，帮助孩子建立技术表达与创新意识。',
-    image: 'linear-gradient(135deg, #ebfaf4, #d8f5ea)'
-  },
-  {
-    title: 'STEAM能力提升成长案例',
-    category: '能力提升',
-    summary: '从零基础到逐步形成项目执行逻辑，家长反馈明显提升学习自信与学习动力。',
-    image: 'linear-gradient(135deg, #fff5eb, #fbe4c9)'
-  }
-]
-
-const advantages = [
-  {
-    icon: '✅',
-    title: '正规企业资质',
-    text: '以专业、合法、稳定的运营标准为底层保障，提升家长信任感。'
-  },
-  {
-    icon: '🧠',
-    title: '工程项目实战',
-    text: '以真实任务驱动学习，让孩子在“做中学”中建立解决问题的底层能力。'
-  },
-  {
-    icon: '👩‍🏫',
-    title: '双师型教学团队',
-    text: '结合工程背景和教育经验，为孩子提供更高质量的学习支持与成长陪伴。'
-  },
-  {
-    icon: '📈',
-    title: '全程学习跟踪',
-    text: '从评估、规划到课堂反馈，全流程清晰透明，高效支持家庭决策。'
-  }
-]
-
 const form = ref({
   name: '',
   phone: '',
   grade: '',
+  course: '',
   message: ''
 })
 
 const submitted = ref(false)
 
 const handleSubmit = () => {
-  if (!form.value.name || !form.value.phone || !form.value.grade) {
-    alert('请完整填写姓名、电话和孩子年级。')
+  if (!form.value.name || !form.value.phone || !form.value.grade || !form.value.course) {
+    alert('请完整填写姓名、电话、孩子年级和意向课程。')
     return
   }
 
   submitted.value = true
-  form.value = { name: '', phone: '', grade: '', message: '' }
+  form.value = { name: '', phone: '', grade: '', course: '', message: '' }
 }
+
+const faqs = [
+  {
+    q: '课程是否适合不同年龄段孩子？',
+    a: '我们会根据孩子的年龄、基础和学习目标，设计更适合的项目内容与学习节奏，让课程更贴合成长阶段。'
+  },
+  {
+    q: '是否有试听或体验活动？',
+    a: '可以预约免费试听，家长和孩子可以先感受课程形式、项目内容和教师教学方式，再决定是否继续。'
+  },
+  {
+    q: '课程是否需要提前基础？',
+    a: '不需要。我们会从孩子的现状出发，从兴趣和基础入手，帮助孩子建立稳定的学习方法与成长路径。'
+  },
+  {
+    q: '怎么判断课程适合我们？',
+    a: '通过咨询沟通和需求评估，我们可以根据孩子当前状态给出更合理的建议，帮助家庭做出更稳妥的决策。'
+  }
+]
 </script>
 
 <style scoped>
-.hero-section {
-  padding-top: 4.5rem;
+.hero-subpage {
   background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
 }
 
-.hero-layout {
+.narrow-copy {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1.5rem 1.2rem 0;
+}
+
+.contact-layout {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 2rem;
-  align-items: center;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 1.5rem;
   padding: 0 1.2rem;
 }
 
-.hero-copy {
-  position: relative;
-}
-
-.hero-copy h1 {
-  margin-bottom: 1rem;
-  max-width: 610px;
-}
-
-.lead {
-  font-size: 1.08rem;
-  line-height: 1.8;
-  max-width: 620px;
-  color: #4b5d77;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin: 2rem 0 1.5rem;
-}
-
-.hero-trust {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-}
-
-.hero-trust span {
-  color: #475569;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(13, 91, 215, 0.08);
-  border-radius: 999px;
-  padding: 0.55rem 0.9rem;
-  font-size: 0.82rem;
-  box-shadow: 0 6px 16px rgba(13, 91, 215, 0.04);
-}
-
-.hero-visual {
-  position: relative;
-  min-height: 430px;
-}
-
-.feature-card {
+.contact-form,
+.info-card,
+.faq-item {
   background: white;
-  border-radius: 24px;
-  box-shadow: 0 20px 44px rgba(15, 23, 42, 0.08);
-  border: 1px solid rgba(224, 232, 244, 0.9);
-}
-
-.card-main {
-  position: absolute;
-  inset: 18px 26px 70px 0;
-  padding: 2rem;
-  background: linear-gradient(135deg, #ffffff, #f5f9ff);
-}
-
-.mini-badge {
-  display: inline-block;
-  color: #0d5bd7;
-  background: rgba(13, 91, 215, 0.08);
-  padding: 0.5rem 0.82rem;
-  border-radius: 999px;
-  font-size: 0.76rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.card-main ul {
-  margin-top: 1.2rem;
-  list-style: none;
-  display: grid;
-  gap: 0.8rem;
-}
-
-.card-main li {
-  color: #2f3f59;
-  position: relative;
-  padding-left: 1.2rem;
-}
-
-.card-main li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: #0d5bd7;
-  font-weight: 800;
-}
-
-.card-float {
-  position: absolute;
-  right: 0;
-  width: 168px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.card-top {
-  top: 0;
-}
-
-.card-bottom {
-  bottom: 0;
-}
-
-.card-float strong {
-  color: #0d5bd7;
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.card-float span {
-  margin-top: 0.5rem;
-  color: #4b5563;
-  text-align: center;
-  font-size: 0.82rem;
-}
-
-.metrics-section {
-  padding-top: 2rem;
-}
-
-.metrics-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.2rem;
-}
-
-.metric-item {
-  background: linear-gradient(180deg, #ffffff, #f9fbff);
-  border: 1px solid rgba(216, 224, 235, 0.9);
-  border-radius: 20px;
-  padding: 2rem 1rem;
-  text-align: center;
-  box-shadow: var(--shadow-md);
-}
-
-.metric-item strong {
-  display: block;
-  font-size: 2.1rem;
-  color: #0d5bd7;
-  margin-bottom: 0.5rem;
-}
-
-.metric-item span {
-  color: #4b5563;
-}
-
-.section-heading {
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  text-align: center;
-}
-
-.section-heading h2 {
-  margin-bottom: 0;
-}
-
-.services-overview,
-.why-us,
-.section-alt {
-  background: transparent;
-}
-
-.service-card,
-.case-card,
-.advantage-item {
-  background: #ffffff;
   border: 1px solid #edf2f7;
   border-radius: 22px;
-  padding: 1.8rem 1.4rem;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1.6rem;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
 }
 
-.service-card:hover,
-.case-card:hover,
-.advantage-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 30px rgba(15, 23, 42, 0.07);
-}
-
-.icon-wrap {
-  width: 58px;
-  height: 58px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #edf4ff, #dfeeff);
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.service-card h3,
-.advantage-item h3,
-.case-card h3 {
-  margin-bottom: 0.7rem;
-}
-
-.service-card a {
-  display: inline-block;
-  margin-top: 1rem;
-  font-weight: 700;
-}
-
-.case-image {
-  height: 180px;
-  border-radius: 16px;
-  margin-bottom: 1rem;
-}
-
-.case-tag {
-  display: inline-block;
-  background: rgba(13, 91, 215, 0.08);
-  color: #0d5bd7;
-  padding: 0.38rem 0.72rem;
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  margin-bottom: 0.7rem;
-}
-
-.advantage-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.2rem;
-}
-
-.adv-icon {
-  width: 58px;
-  height: 58px;
-  border-radius: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  background: linear-gradient(135deg, #eef9ff, #ebf7ff);
-  margin-bottom: 1rem;
-}
-
-.contact-banner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 2rem;
-  align-items: center;
-  background: linear-gradient(135deg, #ffffff, #f5f9ff);
-  border: 1px solid #ecf0f5;
-  border-radius: 28px;
-  padding: 2rem 1.5rem;
-  box-shadow: 0 22px 38px rgba(15, 23, 42, 0.04);
-}
-
-.mini-form {
-  width: 100%;
+.contact-form h2 {
+  margin-bottom: 1.5rem;
 }
 
 .form-grid {
@@ -540,7 +174,7 @@ const handleSubmit = () => {
 .field {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .field.full-width {
@@ -548,7 +182,6 @@ const handleSubmit = () => {
 }
 
 .field label {
-  font-size: 0.9rem;
   color: #374151;
   font-weight: 600;
 }
@@ -560,9 +193,8 @@ const handleSubmit = () => {
   border: 1px solid #e6edf5;
   border-radius: 12px;
   background: #fff;
-  padding: 0.92rem 1rem;
+  padding: 0.9rem 1rem;
   font: inherit;
-  color: #1f2937;
 }
 
 .field textarea {
@@ -570,31 +202,44 @@ const handleSubmit = () => {
   resize: vertical;
 }
 
+.info-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.info-card ul {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+  color: #4b5563;
+}
+
+.faq-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.faq-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.faq-item h3 {
+  margin-bottom: 0.6rem;
+}
+
 .success-tip {
-  margin-top: 0.8rem;
-  color: var(--success);
-  font-weight: 600;
+  margin-top: 1rem;
+  color: #0f8c53;
+  font-weight: 700;
 }
 
 @media (max-width: 860px) {
-  .hero-layout,
-  .contact-banner {
-    grid-template-columns: 1fr;
-  }
-
-  .card-main {
-    inset: 10px 10px 100px 0;
-  }
-}
-
-@media (max-width: 620px) {
+  .contact-layout,
+  .faq-list,
   .form-grid {
     grid-template-columns: 1fr;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    align-items: stretch;
   }
 }
 </style>
